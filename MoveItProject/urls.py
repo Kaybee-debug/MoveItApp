@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("Home.urls") ),
     path('Accounts/', include("Accounts.urls") ),
+    path('Drivers/', include("Driver.urls") ),
 ]
