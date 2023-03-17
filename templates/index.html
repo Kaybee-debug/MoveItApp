@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>moveit</title>
     <!-- fontawesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    <link rel="stylesheet" href='{% static "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" %}' integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <!-- custom css link -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href='{% static "style.css" %}'>
 
 </head>
 
@@ -24,8 +25,8 @@
                 <p>Need to move your things? Or need to rent Stress no more we can help</p>
             </div>
             <div class="buttons">
-                <button class="btn" id="signIn"><a href="login.html">sign in</a></button>
-                <button class="btn" id="signUp"><a href="register.html">sign up</a></button>
+                <button class="btn" id="signIn"><a href='{% url "login" %}'>sign in</a></button>
+                <button class="btn" id="signUp"><a href='{% url "register" %}'>sign up</a></button>
             </div>
         </div>
     </section>
