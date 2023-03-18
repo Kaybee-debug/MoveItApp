@@ -7,7 +7,7 @@ def register(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
-        password = request.POST['password1']
+        password = request.POST['password']
         password2 = request.POST['password2']
     
         if password == password2:
@@ -20,6 +20,7 @@ def register(request):
             else:
                 user = User.objects.create_user(username=username,email=email,password=password)
                 user.save();
+                print('user created')
                 return redirect('login')
         else:
             messages.info(request,'Password Not The Same')
@@ -41,4 +42,4 @@ def login(request):
             messages.info(request,'Invalid Credentials')
             return redirect('login')
     else:
-        return render(request,'login.html')
+        return render(request,'login.html') 

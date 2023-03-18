@@ -23,7 +23,7 @@
             <h2>Move it</h2>
 
             <div class="content">
-                <form action="" method="POST">
+                <form action="register" method="POST">
                     {%csrf_token%}
                     <div class="inputbox">
                         <span><i class="fas fa-envelope" ></i></span>
@@ -35,16 +35,21 @@
                     </div>
                     <div class="inputbox">
                         <span><i class="fas fa-lock" ></i></span>
-                        <input type="password" name="passsword" placeholder="Password">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
                     <div class="inputbox">
                         <span><i class="fas fa-lock" ></i></span>
-                        <input type="password" name="passsword2" placeholder="Confirm password">
+                        <input type="password" name="password2" placeholder="Confirm password">
                     </div>
                     <p>By signing up you are agreeing to our <span>terms of service </span>and <span>privacy policy</span></p>
-                    <button class="btn" id="signUp"><a href='{% url "login" %}'>sign Up</a></button>
+                    <button class="btn" id="signUp">sign Up</button>
                     <button class="btn" id="signIn"><a href='{% url "login" %}'>sign in</a></button>
                 </form>
+                <div class="error">
+                    {% for message in messages %}
+                    <h1 style="color:red;">{{message}}</h1>
+                    {% endfor %}
+                </div> 
             </div>
         </div>
     </section>

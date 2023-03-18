@@ -17,12 +17,8 @@
             <img class="image" src='{% static "images/moveit.jpg" %}' alt="" srcset="">
             <h2>Move it</h2>
             <div class="content">
-                <form action="">
-                    <!-- </h1><br> {% for message in messages %}
-                    <h2>
-                        <center>{{message}}</center>
-                    </h2>
-                    {% endfor %} -->
+                
+                    
                     <form action="login" method="POST" class="input-group">
                         {% csrf_token %}
                         <div class="inputbox">
@@ -34,8 +30,13 @@
                             <input type="password" name="password" placeholder="Password">
                         </div>
                         <p>Forgot password?</p>
-                        <button class="btn" id="signIn"><a href='{% url "index" %}'>sign in</a></button>
+                        <button class="btn" id="signIn">sign in</button>
                     </form>
+                    <div class="error">
+                        {% for message in messages %}
+                        <h1 style="color:red;">{{message}}</h1>
+                        {% endfor %}
+                    </div> 
             </div>
 
         </div>
