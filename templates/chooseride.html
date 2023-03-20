@@ -8,39 +8,57 @@
     
       <title>Choose Ride</title>
       <link rel="stylesheet" href= '{% static "ride.css" %}'>
+      <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js' ></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+   </head>
       
      
    <body>
-      <div>
-        <div>
-            <img src='{% static "images/map.jpg" %}' alt="" style="width: 100%; height: 397px;">
-        </div>
-         <div class="container" style="padding-bottom: 20%;"> 
+     
+        
+         <div id='map' style='width: 100%; height: 300px;'></div>
+         {% for item in items %}
+         <div class="container" style="padding-bottom: 10%;"> 
             <div class="services_section_2">
                <div class="news_main" onclick="details()">
                   <div class="news_section_left">
                      <div class="image_2"><img src='{% static "images/img-7.png" %}'></div>
                   </div>
                   <div class="news_section_right" >
-                     <h1 class="great_text">Venter/ Trailler</h1>
-                     <p class="dolor_text">Up to 900 Kg</p>
-                     <h1 class="great_text">est R300.00</h1>
+                     <h1 class="great_text">{{item.transportation}}</h1>
+                     <p class="dolor_text">Up {{item.weight}}Kg</p>
+                     <h1 class="great_text">est R{{item.price}}</h1>
                   </div>
                </div>
             </div>
          </div>
+         {% endfor %}
         
-      </div>
+     
+      <script>
+         mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyYWJvLTIxIiwiYSI6ImNsZmg2ZzZ2bjN0eDkzem80enl1OHdsZ3YifQ.NYQG6cVcf7pa-Ks4Q_jX5A';
+         var map = new mapboxgl.Map({
+           container: 'map',
+           style: 'mapbox://styles/mapbox/streets-v11',
+           center:[-0.1195,51.5033],//staring position [long,lat]
+           zoom:15 //starting
+         });
+         var marker = new mapboxgl.Marker()
+         .setlngLat([-0.1195,51.5033])
+         .addTo(map);
+       </script>
  
     
       <!-- Javascript files-->
       <script>
-  function details(){
-   window.location.replace("option.html");
+         function details(){
+            window.location.replace("option.html");
         }
      
       </script>
       
    </body>
 </html>
+
 
