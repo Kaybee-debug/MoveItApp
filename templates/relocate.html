@@ -1,1 +1,45 @@
-<P>MAKE BOOKINGS</P>
+{% load static %}
+<html>
+
+<head>
+    <!-- fontawesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- custom css link -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <section class="register" id="signInform">
+        <div class="row" id="relocateform">
+            <img class="image" src="images/moveit.jpg" alt="" srcset="">
+            <h2>Move it</h2>
+            <div class="content">
+                <div class="inputbox" id="rellocate">
+                    <span><i class="fa-sharp fa-regular fa-clock" ></i></span>
+                    <input type="button" value="Rellocate">
+				</div>
+                <form method="POST" class="input-group">
+                    <p class="relocatep">By signing up you are agreeing to our</p>
+                    <div class="inputbox">
+                        <input type="text" name="date" placeholder="When">
+                    </div>
+                    <div class="inputbox">
+                        <input type="address" name="starting_point" placeholder="Moving from">
+                        <span><i class="fas fa-map-pin" ></i></span>
+                        </div>
+                    <div class="inputbox">
+                        <input type="address" name="destination" placeholder="Moving to">
+                        <span><i class="fas fa-location-dot" ></i></span>
+                    </div>
+                    <button class="btn" id="signUp">Choose ride</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

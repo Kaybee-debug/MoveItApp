@@ -185,6 +185,41 @@ button:hover {
     color:red;
 }
 
+#rellocate {
+    margin-left: 20%;
+    width: 18%;
+    background: #4a6c93;
+    box-shadow: none;
+    border-radius: 1.2rem;
+}
+
+#rellocate input {
+    border-radius: 1.2rem;
+    padding: .8rem 3px;
+    background: #4a6c93;
+    color: #FFFFFF;
+    border: none;
+}
+
+#rellocate span {
+    margin-right: 5px;
+    color: #FFFFFF;
+}
+
+#relocateform {
+    margin-top: 13%;
+}
+
+.relocatep {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+#relocateform form .inputbox span {
+    padding-right: 1.5rem;
+    color: #13095a;
+}
+
 
 /* responsiveness */
 
@@ -207,6 +242,19 @@ button:hover {
     }
     #signInform .content {
         margin-bottom: -13%;
+    }
+    #relocateform {
+        margin-top: 0;
+    }
+    #rellocate {
+        width: 50%;
+        background: #4a6c93;
+        margin: 0;
+    }
+    #rellocate input {
+        padding: 1rem;
+        background: #4a6c93;
+        color: #FFFFFF;
     }
 }
 
