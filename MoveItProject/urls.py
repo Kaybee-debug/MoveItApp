@@ -22,4 +22,8 @@ urlpatterns = [
     path('Accounts/', include("Accounts.urls") ),
     path('Drivers/', include("Driver.urls") ),
     path('Relocate/', include("Relocate.urls") ),
+<<<<<<< HEAD
+=======
+    path('Payment/', include("Payment.urls") ),
+>>>>>>> cc95097 (modified files)
 ]
