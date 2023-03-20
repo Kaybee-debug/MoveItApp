@@ -1,9 +1,9 @@
 
 from django.shortcuts import render
-from .models import Driver
+from .models import Driver,Vihicle
 
 # Create your views here.
-def displayVihicle(request):
+def displayDriver(request):
     
     items = Driver.objects.all()
     
@@ -12,3 +12,13 @@ def displayVihicle(request):
     }
     
     return render(request,"driver.html",context)
+
+def displayVihicle(request):
+    
+    items = Vihicle.objects.all()
+    
+    context = {
+        "items":items
+    }
+    
+    return render(request,"chooseride.html",context)

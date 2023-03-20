@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-     path("display/",views.displayVihicle,name="display"),
+     path("display/",views.displayDriver,name="display"),
+      path("show/",views.displayVihicle,name="show"),
 ]
 
   
