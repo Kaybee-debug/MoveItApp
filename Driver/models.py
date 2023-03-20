@@ -8,7 +8,7 @@ class Driver(models.Model):
     model= models.CharField(max_length=100)
   
     def __str__(self): 
-        return self.driverName  
+        return self.driver_name  
     
 
 class Vihicle(models.Model):

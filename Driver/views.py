@@ -1,14 +1,14 @@
 
 from django.shortcuts import render
-from .models import Vihicle
+from .models import Driver
 
 # Create your views here.
 def displayVihicle(request):
     
-    items = Vihicle.objects.all()
+    items = Driver.objects.all()
     
     context = {
         "items":items
     }
     
-    return render(request,"displayVihicle.html",context)
+    return render(request,"driver.html",context)
