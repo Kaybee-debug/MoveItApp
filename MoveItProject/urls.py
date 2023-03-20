@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include("Home.urls") ),
     path('Accounts/', include("Accounts.urls") ),
     path('Drivers/', include("Driver.urls") ),
+    path('Relocate/', include("Driver.urls") ),
 ]
