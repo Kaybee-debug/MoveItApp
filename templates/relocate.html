@@ -13,17 +13,18 @@
 
     <section class="register" id="signInform">
         <div class="row" id="relocateform">
-            <img class="image" src="images/moveit.jpg" alt="" srcset="">
+            <img class="image" src='{% static "images/moveit.jpg" %}' alt="" srcset="">
             <h2>Move it</h2>
             <div class="content">
                 <div class="inputbox" id="rellocate">
                     <span><i class="fa-sharp fa-regular fa-clock" ></i></span>
-                    <input type="button" value="Rellocate">
+                    <input type="button" value="Relocate">
 				</div>
                 <form method="POST" class="input-group">
-                    <p class="relocatep">By signing up you are agreeing to our</p>
+                    <p class="relocatep">let us help you to move your things</p>
                     <div class="inputbox">
                         <input type="text" name="date" placeholder="When">
+                        <span><i class="fa fa-calendar" ></i></span>
                     </div>
                     <div class="inputbox">
                         <input type="address" name="starting_point" placeholder="Moving from">

@@ -4,3 +4,7 @@ from django.shortcuts import render
 def new_location(request):
     
     return render(request,'relocate.html') 
+
+def new_schedule(request):
+    
+    return render(request,'schedule.html') 
