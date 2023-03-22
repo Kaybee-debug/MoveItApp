@@ -220,6 +220,134 @@ button:hover {
     color: #13095a;
 }
 
+.schedule .row {
+    text-align: center;
+    align-items: center;
+}
+
+.schedule .row .container {
+    background-color: #fff;
+    background: cover;
+    color: #111;
+    width: 93vw;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: -1.5rem;
+}
+
+.schedule .row .container h3 {
+    text-transform: capitalize;
+}
+
+.schedule .pending {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.schedule .row h1 {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    margin-top: 1.5rem;
+}
+
+.schedule .logo {
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+
+.schedule .content {
+    border: 1px solid #9f9f9f;
+    border-radius: .8rem;
+    background: whitesmoke;
+    text-align: start;
+    padding: 0 1rem;
+    width: 25vw;
+    margin: auto;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    padding: 3px 1rem 3.5rem .5rem;
+}
+
+.schedule .pending .content a {
+    margin-top: .8rem;
+    text-decoration: none;
+    color: #FFFFFF;
+    background: #4a6c93;
+    padding: 3px 1.4rem;
+    font-size: 1.4rem;
+    height: 1.6rem;
+    border-radius: 1rem;
+}
+
+.schedule .row .history {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.schedule .row .container .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.schedule .row .container .buttons button {
+    width: 25%;
+}
+
+.schedule .history h3 {
+    margin-left: -40%;
+    padding-right: 20px;
+}
+
+.schedule .pending h3 {
+    margin-left: -70%;
+}
+
+#services .container {
+    margin: auto;
+    flex-direction: column;
+    height: 100%;
+}
+
+#services .images img {
+    width: 40%;
+    padding: .4rem;
+}
+
+#services .inputbox {
+    background: #4a6c93;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: .5px solid #9f9f9f;
+    border-radius: 1rem;
+    width: 20%;
+    margin: auto;
+}
+
+#services .shifts {
+    display: flex;
+}
+
+#services .inputbox span {
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-left: 1rem;
+}
+
+#services .container {
+    margin-bottom: -3%;
+}
+
+#services .inputbox a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 1rem;
+    font-size: 16px;
+}
+
 
 /* responsiveness */
 
@@ -256,6 +384,19 @@ button:hover {
         background: #4a6c93;
         color: #FFFFFF;
     }
+    .pending h3 {
+        margin-left: -85%;
+    }
+    .history h3 {
+        margin-left: -40%;
+        padding-right: 0;
+    }
+    .schedule .content {
+        width: 200px;
+    }
+    #services .inputbox {
+        width: 35%;
+    }
 }
 
 @media(max-width: 450px) {
@@ -264,6 +405,36 @@ button:hover {
     }
     .register form {
         width: 100%;
+    }
+    .schedule .content {
+        width: 180px;
+    }
+    .pending h3 {
+        margin-left: 0;
+        margin-top: -20%;
+        padding-bottom: 10px;
+    }
+    .history h3 {
+        margin-left: 0;
+        margin-top: -10%;
+    }
+    .schedule {
+        font-size: 65%;
+    }
+    #services .images {
+        padding: 1rem;
+    }
+    #services .inputbox {
+        width: 45%;
+    }
+    #services .inputbox a {
+        padding: 1rem;
+    }
+    #services .inputbox span {
+        font-size: 98%;
+    }
+    #services .inputbox a {
+        font-size: 10px;
     }
 }
 
