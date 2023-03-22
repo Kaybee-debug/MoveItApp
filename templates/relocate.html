@@ -21,20 +21,21 @@
                     <input type="button" value="Relocate">
 				</div>
                 <form method="POST" class="input-group">
+                    {% csrf_token %}
                     <p class="relocatep">let us help you to move your things</p>
                     <div class="inputbox">
                         <input type="text" name="date" placeholder="When">
                         <span><i class="fa fa-calendar" ></i></span>
                     </div>
                     <div class="inputbox">
-                        <input type="address" name="starting_point" placeholder="Moving from">
+                        <input type="address" name="origin" placeholder="Moving from">
                         <span><i class="fas fa-map-pin" ></i></span>
                         </div>
                     <div class="inputbox">
                         <input type="address" name="destination" placeholder="Moving to">
                         <span><i class="fas fa-location-dot" ></i></span>
                     </div>
-                    <button class="btn" id="signUp">Choose ride</button>
+                    <button class="btn" id="signUp"><a href="deliveries">Choose ride</a></button>
                 </form>
             </div>
 
