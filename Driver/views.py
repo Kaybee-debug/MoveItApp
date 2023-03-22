@@ -22,3 +22,7 @@ def displayVihicle(request):
     }
     
     return render(request,"chooseride.html",context)
+
+def displayDetail(request):
+    
+    return render(request,'ridedetails.html') 
