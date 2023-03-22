@@ -7,9 +7,14 @@ def new_location(request):
     
     return render(request,'relocate.html') 
 
+
 def new_schedule(request):
     
     return render(request,'schedule.html') 
+
+def new_deliveries(request):
+    
+    return render(request,'deliveries.html') 
 
 class AddressView(CreateView):
 

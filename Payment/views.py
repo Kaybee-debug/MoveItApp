@@ -5,3 +5,6 @@ def pay(request):
     
     return render(request,'payment.html') 
 
+def map(request):
+    
+    return render(request,'map.html') 
