@@ -1,1 +1,62 @@
-<p>dhghjkn</p>
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: #f6f6f6 ;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-5">Payment Information</h1>
+      <form action="payment_processor.php" method="post">
+        <div class="form-group">
+          <label for="amount">Amount:</label>
+          <input type="number" class="form-control" id="amount" name="amount" min="1" max="10000" required>
+        </div>
+<div class="d-flex justify-content-between">
+        <div class="form-group">
+          <label for="card_number">Card Number:</label>
+          <input type="text" style="width: 55vw;" class="form-control" id="card_number" name="card_number" required>
+        </div>
+        <div class="form-group">
+          <label  for="cvv">CVV:</label>
+          <input type="password" style="width: 20vw; margin-left: auto;" maxlength="3" class="form-control" id="cvv" name="cvv" required>
+        </div>
+      </div>
+
+        <div class="form-group">
+          <label for="expiry_date">Expiry Date:</label>
+          <input type="month" class="form-control" maxlength="16" id="expiry_date" name="expiry_date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="payment_method">Payment Method:</label>
+          <div class="d-flex justify-content-center">
+            <img style="height: 60px; width: 60px; margin: 20px;" src= '{% static "images/visa.jpeg" %}'  alt="">
+            <img style="height: 60px; margin: auto;" src='{% static "images/mastercard.jpeg" %}'  alt="">
+            <img style="height: 60px; width: 60px; margin: 20px;" src= '{% static "images/paypal.jpeg" %}'  alt="mastercard">
+          </div>
+          <select class="form-control" id="payment_method" name="payment_method" required>
+            <option value="">--Select--</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">Mastercard</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
+
+        <button style="margin: 0 auto;" type="submit" class="btn btn-primary d-flex justify-content-center">Confirm Payment</button>
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" ></script>
+    <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

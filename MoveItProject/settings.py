@@ -41,6 +41,7 @@ INSTALLED_APPS = [
      'Driver',
      'Accounts',
      'Relocate',
+     'Payment',
 ]
 
 MIDDLEWARE = [
