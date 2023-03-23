@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Map Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js' ></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <!-- Google Map -->
+        <div id="map" style='width: 100%; height: 400px;'></div>
+      </div>
+      <div class="col-md-4">
+        <!-- Location Description -->
+        <h4>Location Description</h4>
+        <p>Karabo</p>
+        <p>Driver</p>
+        
+        <!-- Profile Pictures -->
+        <div class="row">
+          <div class="col-md-6">
+            <img src="profile1.jpg" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <img src="profile2.jpg" class="img-fluid">
+          </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary btn-block"><i class="bi bi-telephone"></i> Call</button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-primary btn-block"><i class="bi bi-chat-dots"></i> Message</button>
+          </div>
+        </div>
+        
+        <!-- Cancel Delivery Button -->
+        <button class="btn btn-danger btn-block mt-3">Cancel Delivery</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Load the Google Maps JavaScript API -->
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyYWJvLTIxIiwiYSI6ImNsZmg2ZzZ2bjN0eDkzem80enl1OHdsZ3YifQ.NYQG6cVcf7pa-Ks4Q_jX5A';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center:[-0.1195,51.5033],//staring position [long,lat]
+      zoom:15 //starting
+    });
+    var marker = new mapboxgl.Marker()
+    .setlngLat([-0.1195,51.5033])
+    .addTo(map);
+  </script>
+
+</body>
+</html>
