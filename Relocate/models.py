@@ -1,12 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 import geocoder
 mapbox_access_token='pk.eyJ1Ijoia2FyYWJvLTIxIiwiYSI6ImNsZmg2ZzZ2bjN0eDkzem80enl1OHdsZ3YifQ.NYQG6cVcf7pa-Ks4Q_jX5A'
 # Create your models here.
 
 class Relocate(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     when = models.DateField()
-    moving_from= models.CharField(max_length=100)
-    moving_to= models.CharField(max_length=100)
+    moving_from = models.CharField(max_length=100)
+    moving_to = models.CharField(max_length=100)
   
     def __str__(self): 
         return self.moving_from

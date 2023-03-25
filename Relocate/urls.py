@@ -5,8 +5,10 @@ from . views import AddressView
 urlpatterns = [
      path("bookings",views.new_location,name="bookings"),
      path("schedule",views.new_schedule,name="schedule"),
-     path("deliveries/",views.new_deliveries,name="deliveries"),
+     path("deliveries/<int:user_id>/",views.new_deliveries,name="deliveries"),
+     # path("bookings/<pk>/edit/",views.new_schedule,name="schedule"),
+    
      path('map/', AddressView.as_view(), name='map'),
 
-     
+
 ]
