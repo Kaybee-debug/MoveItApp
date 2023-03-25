@@ -1,7 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+</head>
+<body>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.content }} - {{ message.timestamp }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>{% comment %} 
 <html>
 
 	<head>
 		<title> Chat </title>
+		<script src="server.js"></script>
 		
 		<style>
 		
@@ -146,4 +161,4 @@
 	
 	</body>
 
-</html>
+</html> {% endcomment %}
