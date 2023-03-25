@@ -37,24 +37,25 @@
                
                <div class="row" >
                   <div class="column">
-                     <h2>Driver name:</h2>
-                     <h2>Bakkie Registration:</h2>
-                     <h2>Model:</h2>
-                     <h2>Date:</h2>
-                     <h2>Origin:</h2>
-                     <h2>Destination:</h2>
-                     <h2>Estimated price:</h2>
+                     <p>Driver name:</p>
+                     <p>Bakkie Registration:</p>
+                     <p>Model:</p>
+                     <p>Date:</p>
+                     <p>Origin:</p>
+                     <p>Destination:</p>
+                     <p>Estimated price:</p>
                   </div>
                   
                   <div class="column">
                      {% for item in items %}
-                     <h2>{{item.driver_name}}</h2>
-                     <h2>{{item.car_registration}} </h2>
-                     <h2>{{item.model}}</h2>
+                     <p>{{item.driver_name}}</p>
+                     <p>{{item.car_registration}} </p>
+                     <p>{{item.model}}</p>
                      {% endfor %}
-                     <h2>Matsulu</h2>
-                     <h2>Nelspruit</h2>
-                     <h2>R1 000.00</h2>
+                     <p>{{item.when}}</p>
+                     <p>{{item.moving_from }}</p>
+                     <p>{{item.moving_to }}</p>
+                     <p>R1 000.00</p>
                   </div>
                   
                 </div>

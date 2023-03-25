@@ -20,7 +20,7 @@
                     <span><i class="fa-sharp fa-regular fa-clock" ></i></span>
                     <input type="button" value="Relocate">
 				</div>
-                <form method="POST" class="input-group">
+                {% comment %} <form method="POST" class="input-group">
                     {% csrf_token %}
                     <p class="relocatep">let us help you to move your things</p>
                     <div class="inputbox">
@@ -36,6 +36,15 @@
                         <span><i class="fas fa-location-dot" ></i></span>
                     </div>
                     <button class="btn" id="signUp"><a href="deliveries">Choose ride</a></button>
+                </form> {% endcomment %}
+
+                <form method="POST" >
+                    {%csrf_token%}
+                    {{ form }}
+                    <button>Submit</button>
+                    {% comment %} <button type="submit"><a href="/Relocate/deliveries/{{user.id}}/">Submit</a></button>  {% endcomment %}
+                 
+                
                 </form>
             </div>
 
