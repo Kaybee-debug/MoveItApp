@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <style>
+        .message {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin-bottom:5px;
+          }
+          
+
+
+    </style>
+</head>
+
+<body>
+  <h1>Inbox</h1>
+  <div style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); padding: 10px;">
+    {% for message in messages_received %}
+    <div class="message">
+      <p>From: {{ message.sender }}</p>
+      <p>{{ message.content }} - {{ message.timestamp }</p>
+      <a href="{% url 'compose_message' sender_id=message.sender.id %}">Reply</a>
+    </div>
+  {% endfor %}
+  <div>
+
+</body>
+
+</html>
+    
