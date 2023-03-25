@@ -9,6 +9,10 @@ def services(request):
     
     return render(request,'services.html') 
 
+def chat(request):
+    
+    return render(request,'chat.html') 
+
 
 
 
