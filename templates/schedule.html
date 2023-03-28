@@ -20,7 +20,7 @@
                     <span><i class="fa fa-calendar-o" ></i></span>
                     <input type="button" value="Schedule">
 				</div>
-                <form method="POST" class="input-group">
+                {% comment %} <form method="POST" class="input-group">
                     {% csrf_token %}
                     <p class="relocatep">let us help you to move your things</p>
                     <div class="inputbox">
@@ -36,6 +36,11 @@
                         <span><i class="fas fa-location-dot" ></i></span>
                     </div>
                     <button class="btn" id="signUp"><a href="deliveries">Choose ride</a></button>
+                </form> {% endcomment %}
+                <form method="post" "{% url 'update_location' pk=location.pk %}" >
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Update</button>
                 </form>
             </div>
 

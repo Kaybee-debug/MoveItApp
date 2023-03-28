@@ -29,8 +29,9 @@
                             <span><i class="fas fa-lock" aria-hidden="true"></i></span>
                             <input type="password" name="password" placeholder="Password">
                         </div>
-                        <p>Forgot password?</p>
+                       
                         <button class="btn" id="signIn">sign in</button>
+                        <p><a href='{% url "register" %}'>create account here</a></p>
                     </form>
                     <div class="error">
                         {% for message in messages %}

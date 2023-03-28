@@ -1,4 +1,19 @@
-{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Form</title>
+  </head>
+  <body>
+    <h1>Payment Form</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit Payment</button>
+    </form>
+  </body>
+</html>
+
+{% comment %} {% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,7 +30,7 @@
   <body>
     <div class="container">
       <h1 class="text-center mb-5">Payment Information</h1>
-      <form action="payment_processor.php" method="post">
+      <form action="payment_processor.php" method="P">
         <div class="form-group">
           <label for="amount">Amount:</label>
           <input type="number" class="form-control" id="amount" name="amount" min="1" max="10000" required>
@@ -59,4 +74,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" ></script>
     <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
-</html>
+</html> {% endcomment %}

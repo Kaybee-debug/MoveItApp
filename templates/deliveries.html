@@ -13,7 +13,7 @@
     <section class="schedule">
         <div class="row">
             <h1>Your trips</h1>
-            <img class="image" src="images/moveit.jpg" alt="" srcset="">
+            <img class="image" src='{% static "images/moveit.jpg" %}'alt="" srcset="">
             <h2 class="logo">Move it</h2>
             <div class="container">
                 <div class="pending">
@@ -28,19 +28,19 @@
                            
                         </div>
                           {% endfor %}  
-                        <a href="/chat">chat</a>
+                        <a href="/Home/compose/{{sender.pk}}/">chat</a>
                     </div>
                 </div>
-                <div class="content">
+                {% comment %} <div class="content">
                     <h2>No on-going deliveries</h2>
-                </div>
-                <div class="history">
+                </div> {% endcomment %}
+                {% comment %} <div class="history">
                     <div class="content">
                         <h3>history</h3>
                         <h2>14/02/2022</h2>
                         <p>Lorem ipsum dolor sit amet.</p>
                     </div>
-                </div>
+                </div> {% endcomment %}
                 <div class="buttons">
                     <button>schedule</button>
                     <button class="btn" id="signUp"><a href="/Drivers/show">Choose ride</a></button>

@@ -23,7 +23,7 @@
             <div class="services_section_2">
                <div class="news_main" onclick="details()">
                   <div class="news_section_left">
-                     <div class="image_2"><img src='{% static "images/img-7.png" %}'></div>
+                     <div class="image_2"><img src="{{item.image.url}}" style="width: 13rem;height: 11rem;"></div>
                   </div>
                   <div class="news_section_right" >
                      <h1 class="great_text">{{item.transportation}}</h1>

@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Django Home</h1>
+    <h1>Check the distance and route between 2 location</h1>
 
     <form method='POST'>
     {% csrf_token %}
@@ -24,13 +24,13 @@
     var map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [-111.061854, 45.695711], // starting position [lng, lat]
+        center: [24.7492, -28.7947], // starting position [lng, lat]
         zoom: 11 // starting zoom
     });
     {% for address in addresses %}
     var marker = new mapboxgl.Marker()
-        .setLngLat([{{ address.long }}, {{ address.lat }}])
-        //.setPopup(new mapboxgl.Popup().setHTML("<p>{{ address.address }}</p>")) 
+        .setLngLat([{{ origin_location.long }}, {{ origin_location.lat }}])
+        .setPopup(new mapboxgl.Popup().setHTML("<p>{{ address.origin_location }}</p>"))
         .addTo(map);
     {% endfor %}
     </script>

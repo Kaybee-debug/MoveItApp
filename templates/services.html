@@ -23,8 +23,8 @@
             <div class="container">
                 <h2>Choose one of the two services</h2>
 
-                <div class="images">
-                    <img src="images/bike 2.png" alt="" srcset="">
+                <div class="image">
+                    <img   src='{% static "images/car.png" %}'  alt="" srcset="">
                 </div>
                 <div class="shifts">
                     <div class="inputbox">
@@ -33,17 +33,16 @@
                     </div>
                     <div class="inputbox">
                         <span><i class="fas fa-calendar" ></i></span>
-                        <a href="{% url 'schedule' %}"  class="btn">Schedule</a>
+                        {% comment %} <a href="/Relocate/locations/{{location.pk}}/"  class="btn">Schedule</a> {% endcomment %}
+                        <a href="{% url 'update_location' location.pk %}"  class="btn">Schedule</a>
+                        
                     </div>
                 </div>
 
                 <div class="images">
                     <img src="images/bike 2.png" alt="" srcset="">
                 </div>
-                <div class="inputbox">
-                    <span><i class="fas fa-house" ></i></span>
-                    <a href="" class="btn">Accomodation</a>
-                </div>
+                
             </div>
         </div>
     </section>
