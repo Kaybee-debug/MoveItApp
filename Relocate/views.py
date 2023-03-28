@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django import forms
+
 from django.views.generic.edit import CreateView
 from .models import Address,Relocate
 from .form import RelocateForm
@@ -33,7 +33,42 @@ def new_location(request):
     
    
     return render(request,"relocate.html",context)
-
+def update_location(request, pk):
+    location = get_object_or_404(Relocate, pk=pk)
+    form = RelocateForm(instance=location)
+   
+    if request.method == "POST":
+        form = RelocateForm(instance=location,data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('deliveries', args=[request.user.pk]))
+    else:
+        form = RelocateForm(instance=location)
+    context = {
+        "form":form,
+        "location":location,
+        # "pk":pk,
+    }
+    
+   
+    
+    return render(request,"schedule.html",context)
+# def update(request,pk):
+#     listing = Relocate.objects.get(id=pk)
+#     form = RelocateForm(instance=listing)
+#     if request.method == "POST":
+#         form = RelocateForm(request.POST,instance=listing )
+#         if form.is_valid():
+#             form.save()
+#             return redirect(reverse('deliveries', args=[request.user.pk]))
+    
+    
+    
+#     context = {
+#         "form":form
+#     }
+   
+#     return render(request,"schedule.html",context)
 
     
 
@@ -80,21 +115,23 @@ def new_deliveries(request, user_id):
 #     return render(request,"Relocate/schedule.html",context)
 
 
-def new_schedule(request):
+# def new_schedule(request):
     
-    return render(request,'schedule.html') 
+#     return render(request,'schedule.html') 
 
   
 
 class AddressView(CreateView):
 
     model = Address
-    fields = ['address']
+    fields = ['origin_location','destination_location']
     template_name = 'home.html'
-    success_url = '/'
+    success_url = 'map'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['mapbox_access_token'] = "pk.eyJ1Ijoia2FyYWJvLTIxIiwiYSI6ImNsZmg2ZzZ2bjN0eDkzem80enl1OHdsZ3YifQ.NYQG6cVcf7pa-Ks4Q_jX5A"
         context['addresses'] = Address.objects.all()
         return context
+    
+    
