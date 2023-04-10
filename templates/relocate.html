@@ -7,6 +7,16 @@
     />
     <!-- custom css link -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        .inputbox input[type="text"],
+        .inputbox input[type="date"] {
+            width: 100%;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #f5f5f5;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,14 +48,27 @@
                     <button class="btn" id="signUp"><a href="deliveries">Choose ride</a></button>
                 </form> {% endcomment %}
 
-                <form method="POST" >
-                    {%csrf_token%}
-                    {{ form }}
-                    <button>Submit</button>
-                    {% comment %} <button type="submit"><a href="/Relocate/deliveries/{{user.id}}/">Submit</a></button>  {% endcomment %}
-                 
-                
-                </form>
+              
+
+
+  <form method="POST" class="relocate-form">
+    {% csrf_token %}
+    <div class="inputbox">
+      {{ form.when.label_tag }}
+      {{ form.when }}
+    </div>
+    <div class="inputbox">
+      {{ form.moving_from.label_tag }}
+      {{ form.moving_from }}
+    </div>
+    <div class="inputbox">
+      {{ form.moving_to.label_tag }}
+      {{ form.moving_to }}
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+
+
             </div>
 
         </div>

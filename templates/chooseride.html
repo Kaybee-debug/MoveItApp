@@ -21,13 +21,15 @@
          {% for item in items %}
          <div class="container" style="padding-bottom: 10%;"> 
             <div class="services_section_2">
-               <div class="news_main" onclick="details()">
+               <div class="news_main" onclick="details({{item.id}}, {{item.distance}})">
+
+
                   <div class="news_section_left">
                      <div class="image_2"><img src="{{item.image.url}}" style="width: 13rem;height: 11rem;"></div>
                   </div>
                   <div class="news_section_right" >
                      <h1 class="great_text">{{item.transportation}}</h1>
-                     <p class="dolor_text">Up {{item.weight}}Kg</p>
+                     <p class="dolor_text">Up to{{item.weight}}Kg</p>
                      <h1 class="great_text">est R{{item.price}}</h1>
                   </div>
                </div>
@@ -51,12 +53,38 @@
  
     
       <!-- Javascript files-->
-      <script>
-         function details(){
-            window.location.replace("detail");
-        }
-     
-      </script>
+      {% comment %} <script> {% endcomment %}
+         {% comment %} function details(relocate_id) {
+            var url = "{% url 'show' relocate_id=relocate_id %}";
+            window.location.href = url;
+         } {% endcomment %}
+         <script>
+            function details(relocate_id, distance) {
+                console.log('relocate_id:', relocate_id);
+                console.log('distance:', distance);
+                
+                // check if distance is a valid integer
+                if (isNaN(parseInt(distance))) {
+                    console.log('distance is not a valid integer:', distance);
+                    return;
+                }
+                
+                var url = "{% url 'calculate_price' relocate_id=relocate_id distance=distance %}";
+                console.log('url:', url);
+                
+                url = url.replace('relocate_id', relocate_id)
+                         .replace('distance', distance);
+                console.log('updated url:', url);
+                
+                window.location.href = url;
+            }
+        </script>
+        
+          
+          
+        
+          
+         {% comment %} </script> {% endcomment %}
       
    </body>
 </html>

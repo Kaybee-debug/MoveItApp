@@ -21,7 +21,7 @@
     {% for message in messages_received %}
     <div class="message">
       <p>From: {{ message.sender }}</p>
-      <p>{{ message.content }} - {{ message.timestamp }</p>
+      <p>{{ message.content }} - {{ message.timestamp }}</p>
       <a href="{% url 'compose_message' sender_id=message.sender.id %}">Reply</a>
     </div>
   {% endfor %}

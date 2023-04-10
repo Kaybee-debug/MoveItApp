@@ -28,7 +28,10 @@
                            
                         </div>
                           {% endfor %}  
-                        <a href="/Home/compose/{{sender.pk}}/">chat</a>
+                        {% comment %} <a href="{% url 'compose_message' sender_id=user_id %}" >chat</a> {% endcomment %}
+                        <a href="{% url 'compose_message' sender_id=user.id %}">Chats</a>
+                        {% comment %} <a href="{% url 'compose_message' sender_id=sender.id %}" class="btn btn-primary">Chats</a> {% endcomment %}
+
                     </div>
                 </div>
                 {% comment %} <div class="content">
@@ -43,7 +46,12 @@
                 </div> {% endcomment %}
                 <div class="buttons">
                     <button>schedule</button>
-                    <button class="btn" id="signUp"><a href="/Drivers/show">Choose ride</a></button>
+                    {% for item in items %}
+                    <button class="btn" id="signUp"> <a href="{% url 'show' relocate_id=item.relocate_id|default:'0' %}">Choose ride</a></button>
+                    {% comment %} <a href="{% url 'show' relocate_id=item.relocate_id|default:'0' %}">Choose ride</a> {% endcomment %}
+
+
+    {% endfor %}
                 </div>
             </div>
 
