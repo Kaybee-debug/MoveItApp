@@ -3,8 +3,9 @@ from . import views
 
 urlpatterns = [
      path("display",views.displayDriver,name="display"),
-     path("show",views.displayVihicle,name="show"),
-     path("detail",views.displayDetail,name="detail"),
+     path('show/<int:relocate_id>/', views.displayVihicle, name='show'),
+     path('relocate/<int:relocate_id>/calculate_price/<int:distance>/', views.calculate_price, name='calculate_price'),
+     # path("detail",views.displayDetail,name="detail"),
 ]
 
   

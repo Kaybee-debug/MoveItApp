@@ -1,6 +1,8 @@
 
 from django.shortcuts import render
 from .models import Driver,Vihicle
+from django.shortcuts import render, get_object_or_404
+from Relocate.models import Relocate
 
 # Create your views here.
 def displayDriver(request):
@@ -13,16 +15,21 @@ def displayDriver(request):
     
     return render(request,"driver.html",context)
 
-def displayVihicle(request):
+def displayVihicle(request,relocate_id):
     
     items = Vihicle.objects.all()
     
     context = {
-        "items":items
+        "items":items,
+        "relocate_id": relocate_id
     }
     
     return render(request,"chooseride.html",context)
 
-def displayDetail(request):
+def calculate_price(request, relocate_id, distance):
+    relocate = get_object_or_404(Relocate, pk=relocate_id)
+    total_price = relocate.calculate_price(distance)
+    return render(request, 'ridedetail.html', {'total_price': total_price})
+# def displayDetail(request):
     
-    return render(request,'ridedetails.html') 
+#     return render(request,'ridedetails.html') 
