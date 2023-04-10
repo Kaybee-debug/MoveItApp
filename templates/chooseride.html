@@ -10,6 +10,11 @@
       <link rel="stylesheet" href= '{% static "ride.css" %}'>
       <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js' ></script>
       <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+      <style>
+         .news_main {
+            cursor: pointer;
+         }
+      </style>
 
    </head>
       
@@ -69,7 +74,8 @@
                     return;
                 }
                 
-                var url = "{% url 'calculate_price' relocate_id=relocate_id distance=distance %}";
+                {% comment %} var url = "{% url 'calculate_price' relocate_id=relocate_id distance=distance %}"; {% endcomment %}
+                var url =  "{% url 'calculate_price' relocate_id=123 distance=456 %}";
                 console.log('url:', url);
                 
                 url = url.replace('relocate_id', relocate_id)
