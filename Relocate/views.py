@@ -80,6 +80,7 @@ def new_deliveries(request, user_id):
     context = {
         "items": items,
         "user": user,
+        "sender_id": user_id, 
     }
    
     return render(request, "deliveries.html", context)
