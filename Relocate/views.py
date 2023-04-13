@@ -9,9 +9,7 @@ from django.contrib.auth import get_user_model
 
 
 # Create your views here.
-# def new_location(request):
-    
-#     return render(request,'relocate.html') 
+
 
 
 def new_location(request):
@@ -54,22 +52,7 @@ def update_location(request, pk):
    
     
     return render(request,"schedule.html",context)
-# def update(request,pk):
-#     listing = Relocate.objects.get(id=pk)
-#     form = RelocateForm(instance=listing)
-#     if request.method == "POST":
-#         form = RelocateForm(request.POST,instance=listing )
-#         if form.is_valid():
-#             form.save()
-#             return redirect(reverse('deliveries', args=[request.user.pk]))
-    
-    
-    
-#     context = {
-#         "form":form
-#     }
-   
-#     return render(request,"schedule.html",context)
+
 
     
 
@@ -86,42 +69,27 @@ def new_deliveries(request, user_id, relocate_id):
 
     return render(request, "deliveries.html", context)
 
+def edit_location(request, relocate_id):
+    relocate = get_object_or_404(Relocate, pk=relocate_id, user=request.user)
+    form = RelocateForm(instance=relocate)
+    
+    if request.method == "POST":
+        form = RelocateForm(request.POST, instance=relocate)
+        if form.is_valid():
+            relocate = form.save()
+            return redirect(reverse('deliveries', args=[request.user.pk, relocate.pk]))
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "edit_relocate.html", context)
 
     
 
 
-# def new_deliveries(request):
-#     items = Relocate.objects.all()
-    
-#     context = {
-#         "items":items
-#     }
-    
-   
-   
-#     return render(request,"deliveries.html",context)
-
-# def new_schedule(request,pk):
-#     listing = Relocate.objects.get(id=pk)
-#     form = RelocateForm(instance=listing)
-#     if request.method == "POST":
-#         form = RelocateForm(request.POST,instance=listing , files=request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("/")
-    
-    
-    
-#     context = {
-#         "form":form
-#     }
-   
-#     return render(request,"Relocate/schedule.html",context)
 
 
-# def new_schedule(request):
-    
-#     return render(request,'schedule.html') 
 
   
 

@@ -45,7 +45,10 @@
                     </div>
                 </div> {% endcomment %}
                 <div class="buttons">
-                    <button>schedule</button>
+                    <button class="btn" id="signUp"><a href="{% url 'edit_location' relocate_id=relocate.pk|default:'63' %}" class="btn btn-primary">UPDATE</a></button>
+
+
+                    </button>
                     {% comment %} {% for item in items %} {% endcomment %}
                     {% comment %} <button class="btn" id="signUp"> <a href="{% url 'show' relocate_id=item.relocate_id %}">Choose ride</a></button> {% endcomment %}
                     <button class="btn" id="signUp">  <a href="{% url 'show' relocate_id=item.relocate_id|default:'0' %}">Choose ride</a></button>
