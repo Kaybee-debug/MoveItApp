@@ -23,7 +23,8 @@ def new_location(request):
             relocate = form.save(commit=False)
             relocate.user = request.user
             relocate.save()
-            return redirect(reverse('deliveries', args=[request.user.pk]))
+            return redirect(reverse('deliveries', args=[request.user.pk, relocate.pk]))
+
             
            
     
@@ -72,18 +73,20 @@ def update_location(request, pk):
 
     
 
-def new_deliveries(request, user_id):
+def new_deliveries(request, user_id, relocate_id):
     User = get_user_model()
     user = get_object_or_404(User, pk=user_id)
-    items = Relocate.objects.filter(user=user)
-    
+    item = get_object_or_404(Relocate, pk=relocate_id, user=user)
+
     context = {
-        "items": items,
+        "item": item,
         "user": user,
-        "sender_id": user_id, 
+        "sender_id": user_id,
     }
-   
+
     return render(request, "deliveries.html", context)
+
+
     
 
 
