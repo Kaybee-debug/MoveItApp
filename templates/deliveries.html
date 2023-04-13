@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="pending">
                     <div class="content">
-                          {% for item in items %}   
+                          {% comment %} {% for item in items %}    {% endcomment %}
                         <div class="details">
                             
                             <h3>pending</h3>
@@ -27,7 +27,7 @@
                             <p>{{item.moving_to }}</p>
                            
                         </div>
-                          {% endfor %}  
+                          {% comment %} {% endfor %}   {% endcomment %}
                         {% comment %} <a href="{% url 'compose_message' sender_id=user_id %}" >chat</a> {% endcomment %}
                         <a href="{% url 'compose_message' sender_id=user.id %}">Chats</a>
                         {% comment %} <a href="{% url 'compose_message' sender_id=sender.id %}" class="btn btn-primary">Chats</a> {% endcomment %}
@@ -46,12 +46,13 @@
                 </div> {% endcomment %}
                 <div class="buttons">
                     <button>schedule</button>
-                    {% for item in items %}
-                    <button class="btn" id="signUp"> <a href="{% url 'show' relocate_id=item.relocate_id|default:'0' %}">Choose ride</a></button>
-                    {% comment %} <a href="{% url 'show' relocate_id=item.relocate_id|default:'0' %}">Choose ride</a> {% endcomment %}
+                    {% comment %} {% for item in items %} {% endcomment %}
+                    {% comment %} <button class="btn" id="signUp"> <a href="{% url 'show' relocate_id=item.relocate_id %}">Choose ride</a></button> {% endcomment %}
+                    <button class="btn" id="signUp">  <a href="{% url 'show' relocate_id=item.relocate_id|default:'0' %}">Choose ride</a></button>
+                    
 
 
-    {% endfor %}
+    {% comment %} {% endfor %} {% endcomment %}
                 </div>
             </div>
 
