@@ -5,3 +5,4 @@ from .models import Driver,Vihicle
 admin.site.register(Driver)
 admin.site.register(Vihicle)
 
+

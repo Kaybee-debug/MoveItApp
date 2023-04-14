@@ -12,6 +12,7 @@ urlpatterns = [
      path('detail/<int:id>/', views.displayDetail, name='detail'),
     path('Drivers/display/<int:driver_id>/', views.displayDriver, name='displayDriver'),
 
+
 ]
 
   

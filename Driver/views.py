@@ -4,6 +4,7 @@ from .models import Driver,Vihicle
 from django.shortcuts import render, get_object_or_404
 from Relocate.models import Relocate
 
+
 # Create your views here.
 def displayDriver(request, driver_id):
     driver = Driver.objects.get(id=driver_id)
@@ -34,3 +35,4 @@ def displayDetail(request, id):
         'id': id
     }
     return render(request, 'ridedetails.html', context)
+
