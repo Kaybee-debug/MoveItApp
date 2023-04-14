@@ -26,6 +26,14 @@ def displayVihicle(request,relocate_id):
     
     return render(request,"chooseride.html",context)
 
+
+# def show(request, relocate_id):
+#     relocate = get_object_or_404(Relocate, pk=relocate_id)
+#     context = {
+#         'relocate': relocate,
+#     }
+#     return render(request, 'show.html', context)
+
 # def calculate_price(request, relocate_id, distance):
 #     relocate = get_object_or_404(Relocate, pk=relocate_id)
 #     total_price = relocate.calculate_price(distance)
