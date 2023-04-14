@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
     
       <title>Choose Ride</title>
-      <link rel="stylesheet" href= '{% static "ride.css" %}'>
+      <link rel="stylesheet" href='{% static "ride.css" %}'>
       <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js' ></script>
       <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
       <style>
@@ -15,79 +15,45 @@
             cursor: pointer;
          }
       </style>
-
    </head>
       
-     
-   <body>
-     
-        
-         <div id='map' style='width: 100%; height: 300px;'></div>
-         {% for item in items %}
-         <div class="container" style="padding-bottom: 10%;"> 
-            <div class="services_section_2">
-               <div class="news_main" onclick="details({{item.id}}, {{item.distance}})">
-                  
-
-
-                  <div class="news_section_left">
-                     <div class="image_2"><img src="{{item.image.url}}" style="width: 13rem;height: 11rem;"></div>
-                  </div>
-                  <div class="news_section_right" >
-                     <h1 class="great_text">{{item.transportation}}</h1>
-                     <p class="dolor_text">Up to{{item.weight}}Kg</p>
-                     <h1 class="great_text">est R{{item.price}}</h1>
-                  </div>
+   <body>  
+      <div id='map' style='width: 100%; height: 300px;'></div>
+      {% for item in items %}
+      <div class="container" style="padding-bottom: 10%;"> 
+         <div class="services_section_2">
+            <div class="news_main" onclick="details({{ item.id }})">
+               <div class="news_section_left">
+                  <div class="image_2"><img src="{{ item.image.url }}" style="width: 13rem;height: 11rem;"></div>
+               </div>
+               <div class="news_section_right" >
+                  <h1 class="great_text">{{ item.transportation }}</h1>
+                  <p class="dolor_text">Up to {{ item.weight }}Kg</p>
+                  <h1 class="great_text">est R{{ item.price }}</h1>
                </div>
             </div>
          </div>
-         {% endfor %}
-        
+      </div>
+      {% endfor %}
      
       <script>
          mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyYWJvLTIxIiwiYSI6ImNsZmg2ZzZ2bjN0eDkzem80enl1OHdsZ3YifQ.NYQG6cVcf7pa-Ks4Q_jX5A';
          var map = new mapboxgl.Map({
-           container: 'map',
-           style: 'mapbox://styles/mapbox/streets-v11',
-           center:[-0.1195,51.5033],//staring position [long,lat]
-           zoom:15 //starting
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center:[-0.1195,51.5033],//staring position [long,lat]
+            zoom:15 //starting
          });
          var marker = new mapboxgl.Marker()
-         .setlngLat([-0.1195,51.5033])
-         .addTo(map);
-       </script>
- 
-    
-      <!-- Javascript files-->
-      {% comment %} <script> {% endcomment %}
-         {% comment %} function details(relocate_id) {
-            var url = "{% url 'show' relocate_id=relocate_id %}";
+            .setlngLat([-0.1195,51.5033])
+            .addTo(map);
+      </script>
+     
+      <script>
+         function details(relocate_id) {
+            var url = "{% url 'Driver:detail' id=relocate_id %}";
             window.location.href = url;
-         } {% endcomment %}
-         <script>
-            function details(relocate_id, distance) {
-               console.log('details function called');
-               console.log('relocate_id:', relocate_id);
-               console.log('distance:', distance);
-             
-               // check if distance is a valid integer
-               if (isNaN(parseInt(distance))) {
-                 console.log('distance is not a valid integer:', distance);
-                 return;
-               }
-             
-               var url = "{% url 'calculate_price' relocate_id=relocate_id distance=0 %}";
-               console.log('url:', url);
-             
-               url = url.replace('relocate_id', relocate_id)
-                        .replace('distance', distance);
-               console.log('updated url:', url);
-             
-               window.location.href = url;
-             }
-             
-        </script>
-        
-          
-          
-        
+         }
+      </script>
+   </body>
+</html>

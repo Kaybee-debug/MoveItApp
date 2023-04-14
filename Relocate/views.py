@@ -69,10 +69,11 @@ def new_deliveries(request, user_id, relocate_id):
 
     return render(request, "deliveries.html", context)
 
+
 def edit_location(request, relocate_id):
     relocate = get_object_or_404(Relocate, pk=relocate_id, user=request.user)
     form = RelocateForm(instance=relocate)
-    
+
     if request.method == "POST":
         form = RelocateForm(request.POST, instance=relocate)
         if form.is_valid():
@@ -80,7 +81,8 @@ def edit_location(request, relocate_id):
             return redirect(reverse('deliveries', args=[request.user.pk, relocate.pk]))
 
     context = {
-        "form": form
+        "form": form,
+        "relocate": relocate,
     }
 
     return render(request, "edit_relocate.html", context)
