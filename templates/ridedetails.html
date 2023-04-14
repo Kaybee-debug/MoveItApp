@@ -79,8 +79,7 @@
         <div class="icon_p">
             <i><img src='{% static "images/bullet.jpeg" %}' alt=""></i>
             <p>R500</p>
-            {% comment %} <p>Price R{{ total_price }}</p> {% endcomment %}
-            id = request.GET.get('id')
+            
         </div>
         <button class="btn" id="signIn"><a href="{% url 'Driver:displayDriver' driver_id=driver.id|default:'1' %}">Confirm</a></button>
     </div>
