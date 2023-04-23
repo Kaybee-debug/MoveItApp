@@ -118,9 +118,9 @@ button:hover {
     background-color: #fff;
     background: cover;
     width: 92vw;
-    margin-bottom: -1.5rem;
     padding: 40px;
-    border-radius: 20px ;
+    border-radius: 20px 20px 0 0;
+    height: 70vh;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -369,7 +369,7 @@ button:hover {
         width: 80%;
     }
     #signInform .content {
-        margin-bottom: -13%;
+        height: 60vh;
     }
     #relocateform {
         margin-top: 0;
@@ -409,6 +409,10 @@ button:hover {
     .schedule .content {
         width: 180px;
     }
+
+.register .content {
+    height: 100%;
+}
     .pending h3 {
         margin-left: 0;
         margin-top: -20%;

@@ -6,30 +6,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Schedules</title>
     <!-- fontawesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <!-- custom css link -->
-    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
 </head>
 
 <body>
     <section class="schedule" id="services">
         <div class="row">
-            <h1>Your trips</h1>
-            <img class="image" src='{% static "images/moveit.jpg" %}' alt="" srcset="">
-            <h2 class="logo">Move it</h2>
-            <div class="container">
+            <div class="heading">
+                <div class="pic">
+                    <img class="image" src='{% static "images/moveit.jpg" %}' alt="" srcset="">
+                </div>
+                <h2 class="logo">Move it</h2>
+            </div>
+        
+            <div class="choice">
                 <h2>Choose one of the two services</h2>
 
-                <div class="image">
-                    <img   src='{% static "images/car.png" %}'  alt="" srcset="">
-                </div>
-                <div class="shifts">
+                <div class="container">
                     <div class="inputbox">
                         <span><i class="fas fa-van-shuttle" ></i></span>
                         <a href="{% url 'bookings' %}" class="btn">Relocate</a>
+                    </div>
+                    <div class="image">
+                        <img   src='{% static "images/car.png" %}'  alt="" srcset="">
                     </div>
                     <div class="inputbox">
                         <span><i class="fas fa-calendar" ></i></span>
@@ -40,12 +44,7 @@
                         {% comment %} <a href="{% url 'update_location' location.pk %}"  class="btn">Schedule</a> {% endcomment %}
                         
                     </div>
-                </div>
-
-                <div class="images">
-                    <img src="images/bike 2.png" alt="" srcset="">
-                </div>
-                
+                </div> 
             </div>
         </div>
     </section>
